@@ -2,24 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GHoST</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #050505;
+      color: #00ff88;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #cccccc;
+      font-size: 18px;
+    }
+
+    input {
+      padding: 12px;
+      width: 250px;
+      margin-top: 20px;
+      background: #111;
+      color: white;
+      border: 1px solid #00ff88;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin-left: 5px;
+      background: #00ff88;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00cc6a;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #00ff88;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Welcome to GHoST 👻</h1>
 
-  <p>Welcome to my digital space.</p>
+  <div class="container">
+    <h1>GHoST 👻</h1>
 
-  <h2>URL Parameter Demo</h2>
+    <p>Welcome to my digital space.</p>
 
-  <p id="info"></p>
+    <input id="nameInput" type="text" placeholder="Enter your name">
+
+    <button onclick="sayHello()">Enter</button>
+
+    <div id="message"></div>
+  </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name") || "Guest";
+    function sayHello() {
+      const name = document.getElementById("nameInput").value;
 
-    document.getElementById("info").textContent =
-      "Hello, " + name + "!";
+      document.getElementById("message").textContent =
+        name ? "Welcome, " + name + " 👻" : "Welcome, Guest 👻";
+    }
   </script>
+
 </body>
 </html>
